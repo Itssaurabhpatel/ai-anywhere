@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_purple_wave"
+    android:theme="@style/Theme.AiEverywhere">
+
+    <!-- Standard App Bar matching Settings -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="4dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+            
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="12dp"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI anyWhere"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#1C1C1E"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="0dp">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your own API Keys"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- List of Keys -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- OpenAI Row -->
+                <LinearLayout
+                    android:id="@+id/rowOpenAi"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_openai"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Open Ai"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkOpenAi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Anthropic Row -->
+                <LinearLayout
+                    android:id="@+id/rowAnthropic"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_anthropic"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Anthropic"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkAnthropic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Gemini Row -->
+                <LinearLayout
+                    android:id="@+id/rowGemini"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_gemini"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Google Gemini"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkGemini"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- DeepSeek Row -->
+                <LinearLayout
+                    android:id="@+id/rowDeepseek"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_deepseek"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="DeepSeek"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkDeepseek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Cloudflare Row -->
+                <LinearLayout
+                    android:id="@+id/rowCloudflare"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_cloudflare"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Cloudflare AI"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkCloudflare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Groq Row -->
+                <LinearLayout
+                    android:id="@+id/rowGroq"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_row_grey"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:src="@drawable/ic_groq"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Groq"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/linkGroq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="API Key"
+                        android:textColor="#7B1FA2"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:padding="4dp" />
+                        
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_pill_border_gradient"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="Add Key"
+                        android:textColor="#1A1A1A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Note -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note: for API Key click on button API Key on the bases of provider what u want"
+                    android:textSize="12sp"
+                    android:textColor="#8E8E93"
+                    android:textAlignment="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Personal Context Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#FFFFFF"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Personal Context Data"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"
+                            android:textColor="#1A1A1A"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(Name, Phone, Email, Address, etc.)"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:textColor="#8E8E93"
+                            android:layout_marginBottom="12dp"/>
+
+                        <EditText
+                            android:id="@+id/etContextData"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="#F8F8F8"
+                            android:gravity="top|start"
+                            android:hint="E.g. My name is John, my email is john@example.com..."
+                            android:padding="12dp"
+                            android:textColor="#000000"
+                            android:textColorHint="#AAAAAA"
+                            android:textSize="13sp"
+                            android:inputType="textMultiLine"
+                            android:scrollbars="vertical"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSaveContextData"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/bg_button_purple"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"
+                    android:text="Save Context Data"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:elevation="8dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearanceInactive"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearanceActive"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+</LinearLayout>

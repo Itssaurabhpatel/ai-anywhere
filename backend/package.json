@@ -1,0 +1,31 @@
+{
+  "name": "ai-everywhere-backend",
+  "version": "1.0.0",
+  "description": "Production AI Orchestration Backend for AI Everywhere",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.118",
+    "@ai-sdk/google": "^3.0.122",
+    "@ai-sdk/openai": "^3.0.112",
+    "ai": "^6.0.283",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.24",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

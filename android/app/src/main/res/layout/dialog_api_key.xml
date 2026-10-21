@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/bg_dialog_white">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add API Key"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1C1C1E"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your key is stored securely on your device."
+        android:textSize="13sp"
+        android:textColor="#8E8E93"
+        android:layout_marginBottom="24dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp">
+
+        <EditText
+            android:id="@+id/etDialogKey"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="sk-..."
+            android:paddingStart="16dp"
+            android:paddingEnd="64dp"
+            android:textSize="14sp"
+            android:textColor="#1C1C1E"
+            android:inputType="textPassword" />
+
+        <ImageView
+            android:id="@+id/ivToggleVisibility"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="13dp"
+            android:src="@drawable/ic_visibility_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Toggle Password"
+            android:clickable="true"
+            android:focusable="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDialogCancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#1C1C1E"
+            android:background="@drawable/bg_input_field"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:layout_marginEnd="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDialogSave"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="Save Key"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_purple"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+

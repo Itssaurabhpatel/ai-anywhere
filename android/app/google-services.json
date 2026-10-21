@@ -1,0 +1,55 @@
+﻿{
+  "project_info": {
+    "project_number": "358470215443",
+    "project_id": "ai-anywhere-5feb4",
+    "storage_bucket": "ai-anywhere-5feb4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358470215443:android:0f7fae01bb96b292ee9ce6",
+        "android_client_info": {
+          "package_name": "com.aieverywhere.keyboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358470215443-gc4fqkh9lcpqn8bo1gsijgrtaj8o0dmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aieverywhere.keyboard",
+            "certificate_hash": "eff38b804ee1bda7a27401deef41d98ec2d59e1a"
+          }
+        },
+        {
+          "client_id": "358470215443-ku1mho77stc5eavc52k96f10jdevm1l6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aieverywhere.keyboard",
+            "certificate_hash": "2c999a6613efdeb05e5aae1d70cae5213764a4e2"
+          }
+        },
+        {
+          "client_id": "358470215443-rqj7hp7n62d50f64pm3uv1gf2496j97f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNFfIm-Dd0IUQNKvDI66MuI1JU7Lw7BAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358470215443-rqj7hp7n62d50f64pm3uv1gf2496j97f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Action Request",
+  "type": "object",
+  "required": ["action_type", "input_text"],
+  "properties": {
+    "action_type": {
+      "type": "string",
+      "enum": ["FIX_GRAMMAR", "REWRITE", "SMART_REPLY", "TRANSLATE", "SUMMARIZE", "TONE_CHANGE"]
+    },
+    "input_text": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "target_tone": {
+      "type": "string",
+      "enum": ["PROFESSIONAL", "CASUAL", "FRIENDLY", "POLITE", "CONCISE"]
+    },
+    "target_language": {
+      "type": "string",
+      "default": "en"
+    },
+    "device_id": {
+      "type": "string"
+    }
+  }
+}

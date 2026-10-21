@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_purple_wave"
+    android:theme="@style/Theme.AiEverywhere">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="4dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+            
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="12dp"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI anyWhere"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#1C1C1E"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@android:color/transparent"
+        android:fillViewport="true"
+        android:paddingBottom="60dp"
+        android:clipToPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp">
+
+            <!-- Section 1: Account -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCOUNT &amp; SUBSCRIPTION"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#8E8E93"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_card"
+                android:elevation="2dp"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_user"
+                        android:background="@drawable/bg_avatar_circle"
+                        android:padding="8dp"
+                        app:tint="#FFFFFF"
+                        android:layout_marginEnd="12dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:id="@+id/tvProfileName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            tools:text="User"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"
+                            android:maxLines="1"
+                            android:ellipsize="end"/>
+                            
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            tools:text="user@example.com"
+                            android:textSize="13sp"
+                            android:textColor="#8E8E93"
+                            android:maxLines="1"
+                            android:ellipsize="end"/>
+                    </LinearLayout>
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnUpgrade"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_purple"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="Active Plan: Full Access"
+                        android:textAllCaps="false"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnLogoutText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_button_light_gray"
+                        android:textColor="#FF3B30"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="Log Out"
+                        android:textAllCaps="false"
+                        android:paddingHorizontal="18dp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Keyboard Setup & Preferences -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KEYBOARD PREFERENCES"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#8E8E93"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_card"
+                android:elevation="2dp"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="System Setup"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#1C1C1E"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:layout_marginTop="10dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnEnableKeyboard"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_light_gray"
+                        android:text="1. Enable Keyboard"
+                        android:textAllCaps="false"
+                        android:textColor="#1C1C1E"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSwitchKeyboard"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_light_gray"
+                        android:text="2. Switch Keyboard"
+                        android:textAllCaps="false"
+                        android:textColor="#1C1C1E"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <!-- Haptic Toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Haptic Feedback"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vibrate keypresses while typing"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+                    
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchHaptic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+        app:thumbTint="#7B1FA2"
+        app:trackTint="#D1C4E9"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <!-- Auto Switch Model -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Auto-Switch Model"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fallback to free models when quota is reached"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+                    
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchAutoSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+        app:thumbTint="#7B1FA2"
+        app:trackTint="#D1C4E9"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Keyboard Preferences"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Auto-correction, suggestions, layout"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnKeyboardSettings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Open"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AI Preferences"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Default tone, reply style, personal context"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAiSettings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Open"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Keyboard Theme &amp; Layout"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Colours, photo background, key size"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnKeyboardTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Customize"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My Stickers"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Turn your photos into stickers"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMyStickers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Open"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Section 3: AI Engine & API Keys shortcuts -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI ENGINES &amp; API KEYS"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#8E8E93"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_card"
+                android:elevation="2dp"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Active Model shortcut -->
+                <LinearLayout
+                    android:id="@+id/rowManageModels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:paddingVertical="4dp">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Selected AI Intelligence"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:id="@+id/tvSelectedModelName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gemini 1.5 Flash (Fast)"
+                            android:textSize="12sp"
+                            android:textColor="#7B1FA2"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnManageModels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Change"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginVertical="14dp"/>
+
+                <!-- API Keys shortcut -->
+                <LinearLayout
+                    android:id="@+id/rowManageKeys"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:paddingVertical="4dp">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="API Keys Management"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:id="@+id/tvSavedKeysSummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OpenAI, Gemini, DeepSeek, Claude, Groq"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnManageKeys"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_key_normal"
+                        android:text="Configure"
+                        android:textAllCaps="false"
+                        android:textColor="#7B1FA2"
+                        android:textSize="12sp"
+                        android:stateListAnimator="@null"
+                        android:elevation="0dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center">
+                
+                <TextView
+                    android:id="@+id/tvPrivacyPolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy Policy &amp; Terms"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#7B1FA2"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI Anywhere Keyboard v1.0.0"
+                    android:textSize="12sp"
+                    android:textColor="#8E8E93"/>
+                    
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Developer: saurabh.devworks@gmail.com"
+                    android:textSize="12sp"
+                    android:textColor="#8E8E93"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:elevation="8dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearanceInactive"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearanceActive"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+        
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

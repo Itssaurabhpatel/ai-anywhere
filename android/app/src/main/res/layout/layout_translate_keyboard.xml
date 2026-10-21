@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Top Language Selector Bar: From -> To -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_translate_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_back_modern"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Back" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Source Language Spinner Pill (From) -->
+        <Spinner
+            android:id="@+id/sp_translate_source"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@null"
+            android:paddingStart="14dp"
+            android:paddingEnd="10dp"
+            android:spinnerMode="dropdown" />
+
+        <!-- Swap Languages Button (â‡„) -->
+        <ImageButton
+            android:id="@+id/btn_translate_swap"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_swap"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Swap Languages" />
+
+        <!-- Target Language Spinner Pill (To) -->
+        <Spinner
+            android:id="@+id/sp_translate_target"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@null"
+            android:paddingStart="14dp"
+            android:paddingEnd="10dp"
+            android:spinnerMode="dropdown" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- Single Input & Translation Box (Gboard Single Box Style) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_translate_source"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|start"
+            android:hint="Type text to translate..."
+            android:inputType="textMultiLine"
+            android:maxLines="2"
+            android:textColor="#1C1C1E"
+            android:textColorHint="#8E8E93"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_translate_loading"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="6dp"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btn_clear_source"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_clear"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:contentDescription="Clear text" />
+
+        <ImageButton
+            android:id="@+id/btn_insert_translate"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_check"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Insert Translation" />
+
+    </LinearLayout>
+
+    <!-- Action / Status Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:paddingHorizontal="4dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_translate_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Translated response will show here on enter / typing"
+            android:textColor="#7B1FA2"
+            android:textColorHint="#A0A0A0"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:lineSpacingExtra="2dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_translate_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Press Enter to translate &amp; replace in same box"
+                android:textColor="#8E8E93"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_do_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="Translate"
+                android:textSize="13sp"
+                android:textAllCaps="false"
+                android:minWidth="0dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:stateListAnimator="@null" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

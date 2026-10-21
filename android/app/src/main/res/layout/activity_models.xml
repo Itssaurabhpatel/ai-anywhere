@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_purple_wave"
+    android:theme="@style/Theme.AiEverywhere">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="4dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+            
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="12dp"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI anyWhere"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#1C1C1E"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@android:color/transparent"
+        android:fillViewport="true"
+        android:paddingBottom="60dp"
+        android:clipToPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI MODELS"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#8E8E93"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_rounded_card"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp">
+
+                                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Open AI Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbGpt4oMini" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Open AI" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                        
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <!-- Anthropic Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbClaudeSonnet" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Anthropic" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                        
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <!-- Gemini Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbGeminiFlash" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Google Gemini" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                        
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <!-- DeepSeek Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbDeepseek" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="DeepSeek V4 Flash" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                        
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+
+
+                    <!-- Cloudflare Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbCloudflare" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Cloudflare AI (Free)" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <!-- Groq Row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <RadioButton android:buttonTint="#7B1FA2" android:id="@+id/rbGrok" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Groq (GPT-OSS 120B)" android:textSize="15sp" android:textColor="#1C1C1E" android:paddingVertical="10dp"/>
+                        
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnGoToApiKeys"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Set Up API Keys"
+                    android:background="@drawable/bg_button_purple"
+                    app:backgroundTint="@null"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note: For API Key, please click on the API Key button next to the model."
+                    android:textSize="12sp"
+                    android:textColor="#8E8E93"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="16dp"/>
+
+            </LinearLayout>
+            
+            <!-- Auto Switch Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SMART FEATURES"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#8E8E93"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"/>
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_rounded_card"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Left Icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/ic_swap"
+                        android:background="@drawable/bg_circle_white"
+                        android:padding="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:tint="#7B1FA2"/>
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Auto-Switch Model"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#1C1C1E"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Automatically switch to a free model when PRO quota is reached"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93"/>
+                    </LinearLayout>
+                    
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchAutoSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+        app:thumbTint="#7B1FA2"
+        app:trackTint="#D1C4E9"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:elevation="8dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearanceInactive"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearanceActive"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

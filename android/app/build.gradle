@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.aieverywhere.keyboard'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.aieverywhere.keyboard"
+        minSdk 24
+        targetSdk 34
+        versionCode 12
+        versionName "1.2.0"
+    }
+
+    // Builds with JDK 17 (required by Android Gradle Plugin 8.x)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    signingConfigs {
+        release {
+            storeFile file("release-key.jks")
+            storePassword "password123"
+            keyAlias "my-alias"
+            keyPassword "password123"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    lint {
+        abortOnError = false
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.7.4')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    
+    // Google Sign-In
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+    implementation 'com.google.mlkit:translate:17.0.2'
+
+    // Used directly by the keyboard (versions match what appcompat already pulls in)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'androidx.emoji2:emoji2:1.2.0'
+    implementation 'androidx.emoji2:emoji2-views-helper:1.2.0'
+    
+    // For loading GIFs
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+}

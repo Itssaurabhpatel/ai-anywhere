@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Recent screenshots in the clipboard panel -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Android 11+ package visibility: without these, SpeechRecognizer.isRecognitionAvailable()
+         returns false and TextToSpeech cannot bind to the engine, so "Speak" silently fails. -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+        <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="AI anyWhere"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:theme="@style/Theme.AiEverywhere">
+
+        <!-- Android Input Method Service (IME) -->
+        <service
+            android:name=".service.AiKeyboardService"
+            android:label="AI anyWhere Keyboard"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+        
+        <activity
+            android:name=".ui.SplashActivity"
+            android:label="AI anyWhere"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="Login"
+            android:exported="false">
+        </activity>
+        
+        <activity
+            android:name=".ui.SignupActivity"
+            android:label="Sign Up"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ui.HomeActivity"
+            android:label="Home"
+            android:exported="false">
+        </activity>
+        
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:label="Settings"
+            android:exported="false">
+        </activity>
+        
+        <activity
+            android:name=".ui.ApiKeysActivity"
+            android:label="API Keys"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ui.ModelsActivity"
+            android:label="Models"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ui.ThemeActivity"
+            android:label="Keyboard Theme"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.KeyboardSettingsActivity"
+            android:label="Keyboard Settings"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.AiSettingsActivity"
+            android:label="AI Preferences"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.StickerManagerActivity" android:taskAffinity="" android:excludeFromRecents="true"
+            android:label="My Stickers"
+            android:exported="false" />
+
+        <!-- Invisible helper the keyboard opens for runtime permissions and the voice fallback -->
+        <activity
+            android:name=".ui.KeyboardHelperActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.SupportActivity"
+            android:label="Support &amp; Feedback"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ui.SummariseActivity"
+            android:label="Summarise"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.ReplyActivity"
+            android:label="Reply"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
+

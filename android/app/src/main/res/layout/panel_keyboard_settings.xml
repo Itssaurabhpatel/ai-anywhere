@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp">
+        
+        <ImageButton
+            android:id="@+id/btnSettingsBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_modern" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keyboard Settings"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1C1C1E"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_pill_white"
+                android:paddingVertical="8dp">
+
+                <!-- Theme -->
+                <LinearLayout
+                    android:id="@+id/btnPanelTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="12dp">
+                    
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_text_edit" android:layout_marginEnd="12dp"/>
+                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Theme" android:textSize="14sp" android:textColor="#1C1C1E"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginHorizontal="12dp"/>
+
+                <!-- Word suggestions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp">
+                    
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_text_edit" android:layout_marginEnd="12dp"/>
+                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Word suggestions" android:textSize="14sp" android:textColor="#1C1C1E"/>
+                    <Switch android:id="@+id/switchPanelSuggestions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginHorizontal="12dp"/>
+
+                <!-- Summarise and Reply -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp">
+                    
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/app_logo" android:layout_marginEnd="12dp"/>
+                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Summarise and Reply" android:textSize="14sp" android:textColor="#1C1C1E"/>
+                    <Switch android:id="@+id/switchPanelSummarise" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EAEAEA" android:layout_marginHorizontal="12dp"/>
+
+                <!-- Auto-correction -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp">
+                    
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_wand" android:layout_marginEnd="12dp"/>
+                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Auto-correction" android:textSize="14sp" android:textColor="#1C1C1E"/>
+                    <Switch android:id="@+id/switchPanelAutoCorrection" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

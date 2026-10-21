@@ -1,0 +1,34 @@
+{
+  "tones": [
+    {
+      "id": "PROFESSIONAL",
+      "label": "Professional",
+      "icon": "briefcase",
+      "description": "Polite, clear, business-ready communication"
+    },
+    {
+      "id": "CASUAL",
+      "label": "Casual",
+      "icon": "smile",
+      "description": "Relaxed, natural, everyday tone"
+    },
+    {
+      "id": "FRIENDLY",
+      "label": "Friendly",
+      "icon": "heart",
+      "description": "Warm, engaging, approachable style"
+    },
+    {
+      "id": "POLITE",
+      "label": "Polite",
+      "icon": "shield-check",
+      "description": "Courteous and respectful tone"
+    },
+    {
+      "id": "CONCISE",
+      "label": "Concise",
+      "icon": "zap",
+      "description": "Direct, short, to-the-point response"
+    }
+  ]
+}

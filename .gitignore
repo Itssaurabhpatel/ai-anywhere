@@ -1,0 +1,32 @@
+# Built outputs & Gradle
+*.apk
+*.aab
+*.ap_
+*.dex
+.gradle/
+build/
+**/build/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.gradle-offline/
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+
+# Temporary files & logs
+*.log
+temp_*
+
+# Node / Backend
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+Thumbs.db

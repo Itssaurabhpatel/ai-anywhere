@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Compact GBoard-style toolbar (36dp). Colours are applied by KeyboardTheme at runtime. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kb_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    
+    android:paddingHorizontal="4dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <ImageButton
+        android:id="@+id/btn_toolbar_toggle"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="4dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bg_circle_yellow"
+        android:contentDescription="AI features"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tint="#FFFFFF"
+        android:src="@drawable/app_logo" />
+
+    <LinearLayout
+        android:id="@+id/sv_feature_icons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/btn_toolbar_toggle"
+        android:layout_toStartOf="@id/btn_action_mic"
+        >
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_action_emoji"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Emojis and stickers"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_kb_sticker" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_action_clipboard"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Clipboard"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_assignment" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_action_gif"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="GIFs"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_gif_pixel" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_action_translate_icon"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Translate"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_translate" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_action_settings"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Settings"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_kb_settings" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Live dictation text, shown instead of the icons while listening -->
+    <TextView
+        android:id="@+id/tv_voice_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/btn_toolbar_toggle"
+        android:layout_toStartOf="@id/btn_action_mic"
+        android:ellipsize="start"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:singleLine="true"
+        android:text="Listening..."
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/personal_info_suggestions_zone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/btn_toolbar_toggle"
+        android:layout_toStartOf="@id/btn_action_mic"
+        android:fillViewport="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_personal_info_container"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            
+            android:paddingHorizontal="4dp" />
+    </FrameLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/sv_ai_actions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/btn_toolbar_toggle"
+        android:layout_toStartOf="@id/btn_action_mic"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ai_toolbar_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|start"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/btn_action_fix"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="12dp"
+                android:singleLine="true"
+                android:text="Fix"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/btn_action_rewrite"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="12dp"
+                android:singleLine="true"
+                android:text="Rewrite"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/btn_action_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="12dp"
+                android:singleLine="true"
+                android:text="Reply"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/btn_action_tone"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="12dp"
+                android:singleLine="true"
+                android:text="Tone"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/btn_action_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="12dp"
+                android:singleLine="true"
+                android:text="Ask AI"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageButton
+        android:id="@+id/btn_action_mic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Voice typing"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_mic" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/clipboard_suggestion_zone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/btn_toolbar_toggle"
+        android:layout_toStartOf="@id/btn_action_mic"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:paddingStart="12dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|start"
+            android:paddingHorizontal="4dp">
+
+            <LinearLayout
+                android:id="@+id/clipboard_suggestion_pill"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_circle_yellow"
+                android:backgroundTint="#2D3033"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/iv_clipboard_pill_icon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_image"
+                    android:tint="#FFFFFF"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_clipboard_pill_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screenshot"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

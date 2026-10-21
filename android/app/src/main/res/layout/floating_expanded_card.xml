@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_secondary"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="AI Floating Assistant"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btn_close_expanded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Close"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_active_context_snippet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Context: Highlighted screen text..."
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="2">
+
+        <Button
+            android:id="@+id/btn_quick_hinglish"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_columnWeight="1"
+            android:text="Hinglish Reply"
+            android:textSize="11sp"
+            android:backgroundTint="@color/ai_accent" />
+
+        <Button
+            android:id="@+id/btn_quick_pro"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:layout_columnWeight="1"
+            android:text="Professional"
+            android:textSize="11sp"
+            android:backgroundTint="@color/key_cap_bg" />
+
+        <Button
+            android:id="@+id/btn_quick_summarize"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="4dp"
+            android:layout_columnWeight="1"
+            android:text="Summarize"
+            android:textSize="11sp"
+            android:backgroundTint="@color/key_cap_bg" />
+
+        <Button
+            android:id="@+id/btn_quick_translate"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_columnWeight="1"
+            android:text="Translate"
+            android:textSize="11sp"
+            android:backgroundTint="@color/key_cap_bg" />
+
+    </GridLayout>
+
+</LinearLayout>

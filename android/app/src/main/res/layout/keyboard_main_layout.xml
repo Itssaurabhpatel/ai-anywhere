@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root of the keyboard window. Colours are applied at runtime by KeyboardTheme, so nothing here
+     hard-codes a background: the AI result box, translate box and their buttons stay transparent. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kb_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- ===== AI result / custom prompt box (separate panel card) ===== -->
+    <LinearLayout
+        android:id="@+id/preview_card_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:paddingHorizontal="14dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="10dp"
+        android:elevation="6dp"
+        android:visibility="gone">
+
+        <!-- Floating Selection Toolbar (Cut | Copy | Paste | Select All) right on top of the box -->
+        <LinearLayout
+            android:id="@+id/card_selection_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_floating_toolbar"
+            android:elevation="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/btn_bar_cut"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="12dp"
+                android:text="Cut"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+            <View
+                android:id="@+id/div_bar_cut"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="#3C3F45" />
+
+            <TextView
+                android:id="@+id/btn_bar_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="12dp"
+                android:text="Copy"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+            <View
+                android:id="@+id/div_bar_copy"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="#3C3F45" />
+
+            <TextView
+                android:id="@+id/btn_bar_paste"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="12dp"
+                android:text="Paste"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+            <View
+                android:id="@+id/div_bar_paste"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="#3C3F45" />
+
+            <TextView
+                android:id="@+id/btn_bar_select_all"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="12dp"
+                android:text="Select All"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+            <View
+                android:id="@+id/div_bar_close"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="#3C3F45" />
+
+            <TextView
+                android:id="@+id/btn_bar_close"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:text="✕"
+                android:textColor="#A0A0A0"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_preview_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_ai_logo"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="AI"
+                    android:src="@drawable/app_logo" />
+
+                <LinearLayout
+                    android:id="@+id/ll_ai_thinking_dots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/dot_1"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_margin="1.5dp" />
+
+                    <View
+                        android:id="@+id/dot_2"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_margin="1.5dp" />
+
+                    <View
+                        android:id="@+id/dot_3"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_margin="1.5dp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pb_loading"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.aieverywhere.keyboard.ui.SelectionEditText
+                    android:id="@+id/tv_preview_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:fadeScrollbars="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="textMultiLine"
+                    android:longClickable="true"
+                    android:maxLines="5"
+                    android:paddingEnd="30dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="vertical"
+                    android:textSize="15sp" />
+
+                <ImageButton
+                    android:id="@+id/btn_copy_response"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="top|end"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Copy text"
+                    android:padding="4dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_copy"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_discard"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:minWidth="0dp"
+                android:paddingHorizontal="12dp"
+                android:stateListAnimator="@null"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_insert"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:minWidth="0dp"
+                android:paddingHorizontal="12dp"
+                android:stateListAnimator="@null"
+                android:text="Send"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== Inline translate bar (separate panel card) ===== -->
+    <LinearLayout
+        android:id="@+id/inline_translate_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="6dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <Spinner
+                android:id="@+id/sp_inline_source"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:background="@null"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageButton
+                android:id="@+id/btn_inline_swap"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginHorizontal="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Swap languages"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_swap" />
+
+            <Spinner
+                android:id="@+id/sp_inline_target"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:background="@null"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="12dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_inline_translate_input"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical|start"
+                android:hint="Type here to translate..."
+                android:singleLine="true"
+                android:textSize="15sp" />
+
+            <ProgressBar
+                android:id="@+id/pb_inline_loading"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_inline_clear"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Clear"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_inline_insert"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Translate / insert"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_check" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/inline_translate_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gif_search_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginHorizontal="6dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp">
+
+            <EditText
+                android:id="@+id/et_gif_search_input"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_kb_search"
+                android:drawablePadding="8dp"
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical|start"
+                android:hint="Search GIFs..."
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:textSize="15sp" />
+
+            <ProgressBar
+                android:id="@+id/pb_gif_search_loading"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_gif_search_clear"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_gif_search_submit"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_kb_search" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/gif_search_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="12dp" />
+    </LinearLayout>
+
+    <!-- ===== Keyboard body container (toolbar + keys) ===== -->
+    <LinearLayout
+        android:id="@+id/ll_keyboard_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ===== Compact AI / feature toolbar ===== -->
+        <include layout="@layout/ai_toolbar_layout" />
+
+        <!-- ===== Keyboard canvas: height is set in code from the key-size setting ===== -->
+        <FrameLayout
+            android:id="@+id/keyboard_canvas"
+            android:layout_width="match_parent"
+            android:layout_height="236dp">
+
+
+            <LinearLayout
+                android:id="@+id/clipboard_suggestion_pill"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="-10dp"
+                android:background="@drawable/bg_circle_yellow"
+                android:backgroundTint="#2D3033"
+                android:elevation="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/iv_clipboard_pill_icon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_image"
+                    android:tint="#FFFFFF"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_clipboard_pill_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screenshot"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/qwerty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <FrameLayout
+                android:id="@+id/emoji_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/clipboard_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/settings_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/gif_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!-- Search Bar for GIFs -->
+                <LinearLayout
+                        android:id="@+id/ll_gif_search_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+                    
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_kb_search"
+                        android:tint="#888888" />
+                        
+                    <TextView
+                        android:id="@+id/et_gif_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:background="@null"
+                        android:hint="Search GIFs..."
+                        
+                        android:textColorHint="#888888"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:id="@+id/gif_scroll"
+                    android:layout_width="match_parent" 
+                    android:layout_height="0dp" 
+                    android:layout_weight="1" 
+                    android:fillViewport="true">
+                    <GridLayout
+                        android:id="@+id/gif_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3"
+                        android:padding="8dp">
+
+                        <!-- Upload Card -->
+                        <LinearLayout
+                            android:id="@+id/btn_upload_image"
+                            android:layout_width="0dp"
+                            android:layout_height="90dp"
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="fill"
+                            android:layout_margin="6dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            
+                            <ImageView
+                                android:id="@+id/iv_upload_icon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:src="@drawable/ic_image"
+                                android:padding="6dp" />
+                        </LinearLayout>
+                    </GridLayout>
+                </ScrollView>
+            
+                <!-- Bottom bar for ABC button -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingBottom="4dp">
+                    
+                    <TextView
+                        android:id="@+id/btn_gif_abc"
+                        android:layout_width="56dp"
+                        android:layout_height="match_parent"
+                        android:text="ABC"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#555555"
+                        android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:textAllCaps="false"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <include
+                android:id="@+id/translate_view"
+                layout="@layout/layout_translate_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/text_edit_view"
+                layout="@layout/layout_text_edit_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>
+
