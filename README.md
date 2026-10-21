@@ -15,6 +15,28 @@
   <a href="#"><img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge" alt="License" /></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Itssaurabhpatel/ai-anywhere/releases/latest"><img src="https://img.shields.io/badge/Download%20APK-v1.2.0%20(Latest)-2ea44f?style=for-the-badge&logo=android&logoColor=white" alt="Download APK" /></a>
+  <a href="https://github.com/Itssaurabhpatel/ai-anywhere/releases"><img src="https://img.shields.io/badge/GitHub-All%20Releases-24292e?style=for-the-badge&logo=github&logoColor=white" alt="Releases" /></a>
+</p>
+
+---
+
+---
+
+## 📲 Direct Download & Install
+
+Get the latest pre-compiled signed release APK directly on your Android phone:
+
+| Package | Version | Download Link | Requirements |
+| :--- | :--- | :--- | :--- |
+| **AI Anywhere Keyboard** | **v1.2.0 (Build 12)** | [📥 **Download app-release.apk (69.5 MB)**](https://github.com/Itssaurabhpatel/ai-anywhere/releases/download/v1.2.0/app-release.apk) | Android 7.0 (Nougat) to Android 14+ |
+
+> 📌 **How to install on your phone:**
+> 1. Download the `.apk` file using the button above or from [GitHub Releases](https://github.com/Itssaurabhpatel/ai-anywhere/releases).
+> 2. Tap on the downloaded notification or file in your File Manager and select **Install** (allow *Install unknown apps* for your browser if prompted).
+> 3. Open the app, follow the quick 2-step setup to enable and select **AI Anywhere Keyboard**.
+
 ---
 
 ## 📖 Overview
